@@ -1,0 +1,14 @@
+{
+  "name": "workflow",
+  "version": "1.0.0",
+  "description": "Hacking reconnaissance workflow.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SidHawks",
+  "license": "MIT",
+  "dependencies": {
+    "js-beautify": "^1.14.7"
+  }
+}
