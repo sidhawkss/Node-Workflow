@@ -1,7 +1,6 @@
 /* Module that scrap a website and find JavaScript files. */
 
 const https = require('https');
-const beautify = require('js-beautify');
 var result = [];
 
 async function grab(domain,path){
@@ -23,13 +22,14 @@ async function grab(domain,path){
 			res.on('end', () => {		
 				//	const regex = /(src)"*.*\.js/gm;
 				const regex = /(src).*(\.js)/gm;
-				const data_b = beautify(data);
-				const jspaths = data_b.match(regex);
+				const jspaths = data.match(regex);
 				for(var i=0; i < jspaths.length; i++){
-					path = jspaths[i].substring(7);
+					const regex = /(h|\/).*(\.js)/gm
+					const path = jspaths[i].match(regex)[0];
 					path.includes('http'||'https') ? '' : result.push(path);
 				}
 				resolve(result);
+				
 			});
 		});
 	});

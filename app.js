@@ -10,6 +10,7 @@ function main() {
 		process.exit();
 	}
 	const JsFiles = jsGrabber.grab(domain,path)
+	//.then(result => console.log(result));
 	.then(result => downloadJsArr.downloadFiles(domain,result));
 }
 
